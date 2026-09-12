@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Virtuo</title>
+    <!-- FontAwesome from CDN to ensure all icons work perfectly -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Custom Sidebar Layout matching reference */
+        body { margin: 0; background-color: var(--color-background, #110f0e); color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .dashboard-layout { display: flex; min-height: 100vh; }
+        
+        /* Sidebar */
+        .sidebar { width: 260px; background: rgba(255,255,255,0.02); border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; position: fixed; height: 100vh; left: 0; top: 0; z-index: 100; }
+        .sidebar-logo { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .sidebar-logo img { max-width: 150px; }
+        .sidebar-menu { padding: 20px 0; flex: 1; overflow-y: auto; }
+        .sidebar-menu a { display: flex; align-items: center; padding: 15px 30px; color: rgba(255,255,255,0.5); text-decoration: none; font-weight: 500; transition: 0.3s; font-size: 15px; }
+        .sidebar-menu a i { margin-right: 15px; width: 20px; font-size: 18px; text-align: center; }
+        .sidebar-menu a:hover, .sidebar-menu a.active { color: var(--color-primary, #0099ff); background: rgba(0, 153, 255, 0.05); border-right: 3px solid var(--color-primary, #0099ff); }
+        .sidebar-footer { padding: 20px 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .sidebar-footer a { color: #ff4d4d; display: flex; align-items: center; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .sidebar-footer a:hover { opacity: 0.8; }
+        .sidebar-footer a i { margin-right: 15px; }
+        
+        /* Main Content */
+        .main-content { flex: 1; margin-left: 260px; padding: 0; display: flex; flex-direction: column; }
+        .top-header { height: 80px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.01); }
+        .search-bar { position: relative; width: 400px; }
+        .search-bar input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 12px 20px 12px 45px; border-radius: 30px; color: #fff; outline: none; transition: 0.3s; }
+        .search-bar input:focus { border-color: var(--color-primary, #0099ff); }
+        .search-bar i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); }
+        .user-profile { display: flex; align-items: center; gap: 15px; }
+        .user-profile .info { display: flex; flex-direction: column; text-align: right; }
+        .user-profile .info .name { font-weight: 600; font-size: 14px; }
+        .user-profile .info .email { font-size: 12px; color: rgba(255,255,255,0.5); }
+        .user-profile img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); }
+        
+        .dashboard-body { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+        .welcome-banner { background: linear-gradient(90deg, rgba(0, 153, 255, 0.08) 0%, rgba(255,255,255,0.02) 100%); border-radius: 15px; padding: 35px 40px; margin-bottom: 40px; border: 1px solid rgba(0, 153, 255, 0.15); }
+        .welcome-banner h2 { margin: 0 0 10px 0; font-size: 28px; font-weight: 700; }
+        .welcome-banner p { margin: 0; color: rgba(255,255,255,0.7); font-size: 15px; }
+        
+        .section-title { font-size: 16px; font-weight: 600; margin-bottom: 20px; color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 10px; }
+        
+        /* Grid 1: Overview */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 45px; }
+        .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; padding: 25px; display: flex; align-items: center; gap: 20px; transition: 0.3s; }
+        .card:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+        .card-icon { width: 55px; height: 55px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+        .card-icon.blue { background: rgba(0, 153, 255, 0.1); color: #0099ff; }
+        .card-icon.purple { background: rgba(153, 0, 255, 0.1); color: #9900ff; }
+        .card-icon.green { background: rgba(0, 255, 136, 0.1); color: #00ff88; }
+        .card-info { display: flex; flex-direction: column; }
+        .card-value { font-size: 26px; font-weight: 700; margin-bottom: 5px; line-height: 1; }
+        .card-label { font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        /* Grid 2: Actions */
+        .action-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; padding: 25px; text-align: center; cursor: pointer; transition: 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .action-card:hover { border-color: var(--color-primary, #0099ff); background: rgba(0, 153, 255, 0.05); transform: translateY(-3px); }
+        .action-card i { font-size: 24px; color: var(--color-primary, #0099ff); margin-bottom: 12px; }
+        .action-card span { font-weight: 500; font-size: 15px; }
+
+        /* Grid 3: Panels */
+        .layout-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 45px; }
+        .panel { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 15px; padding: 30px; }
+        
+        /* Progress Bars */
+        .progress-item { margin-bottom: 25px; }
+        .progress-item:last-child { margin-bottom: 0; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; font-weight: 500; }
+        .progress-header i { margin-right: 8px; }
+        .progress-bar-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; border-radius: 4px; }
+        
+        /* List Items */
+        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .list-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .list-item:first-child { padding-top: 0; }
+        .list-item .title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+        .list-item .subtitle { font-size: 13px; color: rgba(255,255,255,0.5); }
+        .list-item .value { font-weight: 600; text-align: right; font-size: 15px; margin-bottom: 4px; }
+        .list-item .trend { font-size: 13px; text-align: right; }
+        .trend.up { color: #00ff88; }
+        .trend.down { color: #ff4d4d; }
+        
+        /* Activity List */
+        .activity-item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; }
+        .activity-content p { margin: 0 0 6px 0; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.9); }
+        .activity-content strong { color: #fff; }
+        .activity-content .time { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+    </style>
+</head>
+<body>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <a href="index.html">
+                <img src="assets/images/logo/white-logo-reeni.png" alt="Logo">
+            </a>
+        </div>
+                <div class="sidebar-menu">
+            <a href="user-dashboard.html" class="active"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#"><i class="fas fa-layer-group"></i> My Projects</a>
+            <a href="#"><i class="fas fa-tasks"></i> Task Board</a>
+            <a href="#"><i class="fas fa-folder-open"></i> Design Assets</a>
+            <a href="#"><i class="fas fa-envelope"></i> Messages</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Header -->
+        <div class="top-header">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search projects, files, or messages...">
+            </div>
+            <div class="user-profile">
+                <div class="info">
+                    <span class="name">Devyasowndappan1902</span>
+                    <span class="email">devyasowndappan1902@gmail.com</span>
+                </div>
+                <img src="assets/images/team/team-2.webp" alt="Profile">
+            </div>
+        </div>
+
+        <!-- Dashboard Body -->
+        <div class="dashboard-body">
+            
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <h2>Welcome back, Devyasowndappan1902!</h2>
+                <p>Here's an overview of your active projects and recent activity.</p>
+            </div>
+
+            <!-- 1. Quick Overview -->
+            <div class="section-title">1. Quick Overview</div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon blue"><i class="fas fa-check-circle"></i></div>
+                    <div class="card-info">
+                        <div class="card-value">,500.00</div>
+                        <div class="card-label">Projects Completed</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon purple"><i class="fas fa-users"></i></div>
+                    <div class="card-info">
+                        <div class="card-value">8</div>
+                        <div class="card-label">Active Clients</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon green"><i class="fas fa-clock"></i></div>
+                    <div class="card-info">
+                        <div class="card-value">1,204h</div>
+                        <div class="card-label">Hours Logged (YTD)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Quick Actions -->
+            <div class="section-title">2. Quick Actions</div>
+                        <div class="grid-3 action-grid">
+                <div class="action-card">
+                    <i class="fas fa-plus-circle" style="color: #0099ff;"></i>
+                    <span>New Project Brief</span>
+                </div>
+                <div class="action-card">
+                    <i class="fas fa-lightbulb" style="color: #f39c12;"></i>
+                    <span>Explore Inspiration</span>
+                </div>
+                <div class="action-card">
+                    <i class="fas fa-cloud-download-alt" style="color: #00ff88;"></i>
+                    <span>Download UI Kit</span>
+                </div>
+            </div>
+
+            <!-- 3. Asset Allocation (Project Progress) -->
+                        <div class="section-title">3. Skill Focus & Allocation</div>
+            <div class="layout-2col">
+                <!-- Panel Left -->
+                <div class="panel">
+                    <h3 style="font-size: 16px; margin-top: 0; margin-bottom: 25px; opacity: 0.9;">Design Expertise</h3>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span><i class="fas fa-vector-square" style="color: #00ff88;"></i> UI Design</span>
+                            <span style="opacity: 0.6;">65%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 65%; background: #00ff88;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span><i class="fas fa-users-cog" style="color: #0099ff;"></i> UX Research</span>
+                            <span style="opacity: 0.6;">20%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 20%; background: #0099ff;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span><i class="fas fa-mobile-alt" style="color: #f39c12;"></i> Prototyping</span>
+                            <span style="opacity: 0.6;">10%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 10%; background: #f39c12;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span><i class="fas fa-paint-brush" style="color: #9955ff;"></i> Branding</span>
+                            <span style="opacity: 0.6;">5%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 5%; background: #9955ff;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Panel Right -->
+                <div class="panel">
+                    <h3 style="font-size: 16px; margin-top: 0; margin-bottom: 25px; opacity: 0.9;">Recent Project Status</h3>
+                    
+                    <div class="list-item">
+                        <div>
+                            <div class="title">Fintech App Redesign</div>
+                            <div class="subtitle">Wireframing Phase</div>
+                        </div>
+                        <div>
+                            <div class="value">In Progress</div>
+                            <div class="trend up">On Schedule</div>
+                        </div>
+                    </div>
+                    
+                    <div class="list-item">
+                        <div>
+                            <div class="title">E-Commerce Dashboard</div>
+                            <div class="subtitle">UI Design (Figma)</div>
+                        </div>
+                        <div>
+                            <div class="value">Review</div>
+                            <div class="trend up">Pending Feedback</div>
+                        </div>
+                    </div>
+                    
+                    <div class="list-item">
+                        <div>
+                            <div class="title">Corporate Branding Kit</div>
+                            <div class="subtitle">Logo & Guidelines</div>
+                        </div>
+                        <div>
+                            <div class="value">Completed</div>
+                            <div class="trend up">Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Recent Activity -->
+                        <div class="section-title">4. Recent Notifications</div>
+            <div class="panel">
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-comment-dots" style="color: #0099ff;"></i></div>
+                    <div class="activity-content">
+                        <p><strong>Client left 3 comments</strong> on the Fintech App Figma file.</p>
+                        <div class="time">2 hours ago</div>
+                    </div>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-check-double" style="color: #00ff88;"></i></div>
+                    <div class="activity-content">
+                        <p><strong>Approved:</strong> E-Commerce Dashboard wireframes have been approved.</p>
+                        <div class="time">Yesterday at 4:30 PM</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
