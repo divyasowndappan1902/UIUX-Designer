@@ -923,6 +923,7 @@ function throttle(fn, wait) {
     'use strict';
     // Get the form.
     var form = $('#contact-form');
+    form.attr('novalidate', true);
 
     // Get the messages div.
     var formMessages = $('#form-messages');
@@ -932,38 +933,74 @@ function throttle(fn, wait) {
         // Stop the browser from submitting the form.
         e.preventDefault();
 
-        // Serialize the form data.
-        var formData = $(form).serialize();
+        // Custom Validation
+        var hasError = false;
+        var name = $('#contact-name').val();
+        var email = $('#contact-email').val();
+        var message = $('#contact-message').val();
+        var phone = $('#contact-phone').val();
+        var subject = $('#subject').val();
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Submit the form using AJAX.
-        $.ajax({
-                type: 'POST',
-                url: $(form).attr('action'),
-                data: formData
-            })
-            .done(function (response) {
-                // Make sure that the formMessages div has the 'success' class.
-                $(formMessages).removeClass('error');
-                $(formMessages).addClass('success');
+        if (name) name = name.trim();
+        if (email) email = email.trim();
+        if (message) message = message.trim();
+        if (phone) phone = phone.trim();
+        if (subject) subject = subject.trim();
 
-                // Set the message text.
-                $(formMessages).text(response);
+        // Clear previous errors
+        $('.error-message').hide();
+        $('.input-field').css('border-color', '');
 
-                // Clear the form.
-                $('#name, #email,  #subject, #message').val('');
-            })
-            .fail(function (data) {
-                // Make sure that the formMessages div has the 'error' class.
-                $(formMessages).removeClass('success');
-                $(formMessages).addClass('error');
+        if (!name) {
+            $('#contact-name').css('border-color', '#f06262').parent().find('.error-message').text('Please enter your name.').show();
+            hasError = true;
+        }
+        if ($('#contact-phone').length && !phone) {
+            $('#contact-phone').css('border-color', '#f06262').parent().find('.error-message').text('Please enter your phone number.').show();
+            hasError = true;
+        }
+        if (!email || !emailPattern.test(email)) {
+            $('#contact-email').css('border-color', '#f06262').parent().find('.error-message').text('Please enter a valid email address.').show();
+            hasError = true;
+        }
+        if ($('#subject').length && !subject) {
+            $('#subject').css('border-color', '#f06262').parent().find('.error-message').text('Please enter a subject.').show();
+            hasError = true;
+        }
+        if (!message) {
+            $('#contact-message').css('border-color', '#f06262').parent().find('.error-message').text('Please enter your message.').show();
+            hasError = true;
+        }
 
-                // Set the message text.
-                if (data.responseText !== '') {
-                    $(formMessages).text(data.responseText);
-                } else {
-                    $(formMessages).text('Oops! An error occured and your message could not be sent.');
-                }
-            });
+        if (hasError) {
+            $(formMessages).removeClass('success').addClass('error').text('');
+            return;
+        }
+
+        window.location.href = '404.html';
+    });
+
+    // Newsletter Validation
+    $('.newsletter-form-1').attr('novalidate', true).each(function() {
+        var $nform = $(this);
+        var $msg = $('<div class="newsletter-msg error" style="color: var(--color-danger); font-size: 14px; margin-top: 10px; display: none;"></div>');
+        $nform.after($msg);
+        
+        $nform.submit(function(e) {
+            e.preventDefault();
+            var email = $nform.find('input[type="email"]').val();
+            if (email) email = email.trim();
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email) {
+                $msg.css('color', 'var(--color-danger)').text('Please enter your email address.').show();
+            } else if (!emailPattern.test(email)) {
+                $msg.css('color', 'var(--color-danger)').text('Please enter a valid email address.').show();
+            } else {
+                window.location.href = '404.html';
+            }
+        });
     });
 
 })(jQuery);

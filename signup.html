@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Virtuo is a modern personal portfolio template for designers, developers, content writer, cleaner, programmer, fashion designer, model, Influencer and freelancers. Fully responsive, SEO-friendly, Bootstrap and easy to customize.">
+    <meta name="description" content="Stackly is a modern personal portfolio template for designers, developers, content writer, cleaner, programmer, fashion designer, model, Influencer and freelancers. Fully responsive, SEO-friendly, Bootstrap and easy to customize.">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.svg">
-    <title>Sign Up | Virtuo - Personal Portfolio</title>
+    <title>Sign Up | Stackly - Personal Portfolio</title>
     <!-- Bootstrap min css -->
     <link rel="stylesheet" href="css/style.css">
     
@@ -16,76 +16,105 @@
     
     <!-- custom css -->
     
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body style="background-image: linear-gradient(rgba(17, 15, 14, 0.8), rgba(17, 15, 14, 0.95)), url('assets/images/breadcrumb/bg-1.jpg'); background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 50px 0;">
+<body style=" min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 50px 0;">
+    <div class="bg-animation" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; overflow: hidden; background: #24202a;">
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" style="width: 100%; height: 100%; filter: blur(30px); opacity: 0.6;">
+            <circle cx="20" cy="20" r="25" fill="#8b5cf6">
+                <animate attributeName="cy" values="20; 80; 20" dur="12s" repeatCount="indefinite" />
+                <animate attributeName="cx" values="20; 50; 20" dur="18s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="80" cy="70" r="30" fill="#d946ef">
+                <animate attributeName="cy" values="70; 10; 70" dur="15s" repeatCount="indefinite" />
+                <animate attributeName="cx" values="80; 40; 80" dur="22s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="50" cy="50" r="25" fill="#6366f1">
+                <animate attributeName="cy" values="50; 90; 50" dur="19s" repeatCount="indefinite" />
+                <animate attributeName="cx" values="50; 10; 50" dur="25s" repeatCount="indefinite" />
+            </circle>
+        </svg>
+    </div>
+        <a href="index.html" style="position: absolute; top: 30px; left: 30px; color: #a19fad; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; transition: 0.3s; z-index: 10;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#a19fad'">
+        <span class="material-icons">arrow_back</span>
+        Back to Home
+    </a>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-12 text-center mb--40">
+            <div class="col-lg-12 text-center mb--15">
                 <a href="index.html">
-                    <img src="assets/images/logo/white-logo-reeni.png" alt="Logo" style="max-height: 50px;">
+                    <img src="assets/images/logo_0006.webp" alt="Logo" style="max-height: 30px; object-fit: contain;">
                 </a>
             </div>
             <div class="col-lg-5">
-                <div class="contact-inner tmp-scroll-trigger tmp-fade-in animation-order-1" style="background: rgba(255,255,255,0.02); padding: 50px 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
-                        <div class="section-head text-center mb--40">
+                <div class="contact-inner tmp-scroll-trigger tmp-fade-in animation-order-1" style="background: rgba(255,255,255,0.02); padding: 35px 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                        <div class="section-head text-center mb--15">
                             <span class="subtitle theme-gradient" style="margin-bottom: 10px; display: inline-block;">Sign Up</span>
                             <h3 class="title" style="font-size: 32px; font-weight: 700;">Join Us Today</h3>
                         </div>
                         <div class="contact-form">
                             <form class="tmp-dynamic-form" id="signup-form" action="#">
                                 <div class="contact-form-wrapper row">
-                                                                        <div class="col-lg-12">
-                                        <div class="role-selection-wrapper">
+                                    <div class="col-lg-12">
+                                        <div class="role-selection-wrapper" style="margin-bottom: 15px;">
                                             <label class="role-selection-card">
                                                 <input type="radio" name="role" value="user" checked>
                                                 <div class="role-card-inner">
-                                                    <i class="fas fa-user"></i>
+                                                    <span class="material-icons">person</span>
                                                     <span>User</span>
                                                 </div>
                                             </label>
                                             <label class="role-selection-card">
                                                 <input type="radio" name="role" value="admin">
                                                 <div class="role-card-inner">
-                                                    <i class="fas fa-user-shield"></i>
+                                                    <span class="material-icons">verified_user</span>
                                                     <span>Admin</span>
                                                 </div>
                                             </label>
                                         </div>
                                     </div>
-                                                                        <div class="col-lg-12 mb--25">
+                                    <div class="col-lg-12 mb--15">
                                         <div class="form-group">
-                                            <input class="input-field" id="signup-name" name="name" placeholder="Full Name" type="text" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 18px 25px; border-radius: 8px; color: #fff; font-size: 16px;">
+                                            <input class="input-field" id="signup-name" name="name" placeholder="Full Name" type="text" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 12px 18px; border-radius: 8px; color: #fff; font-size: 16px;">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 mb--25">
+                                    <div class="col-lg-12 mb--15">
                                         <div class="form-group">
-                                            <input class="input-field" id="login-email" name="email" placeholder="Email Address" type="email" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 18px 25px; border-radius: 8px; color: #fff; font-size: 16px;">
+                                            <input class="input-field" id="login-email" name="email" placeholder="Email Address" type="email" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 12px 18px; border-radius: 8px; color: #fff; font-size: 16px;">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 mb--25">
+                                    <div class="col-lg-12 mb--15">
                                         <div class="form-group">
-                                            <input class="input-field" id="login-password" name="password" placeholder="Password" type="password" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 18px 25px; border-radius: 8px; color: #fff; font-size: 16px;">
+                                            <input class="input-field" id="login-password" name="password" placeholder="Password" type="password" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 12px 18px; border-radius: 8px; color: #fff; font-size: 16px;">
                                         </div>
                                     </div>
-                                                                        <div class="col-lg-12 mb--25">
+                                    <div class="col-lg-12 mb--15">
                                         <div class="form-group">
-                                            <input class="input-field" id="signup-password-confirm" name="password_confirm" placeholder="Confirm Password" type="password" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 18px 25px; border-radius: 8px; color: #fff; font-size: 16px;">
+                                            <input class="input-field" id="signup-password-confirm" name="password_confirm" placeholder="Confirm Password" type="password" required style="width: 100%; background: transparent; border: 1px solid rgba(255,255,255,0.15); padding: 12px 18px; border-radius: 8px; color: #fff; font-size: 16px;">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 mb--40"></div>
-                                        <a href="#" class="forgot-password" style="color: var(--color-primary); font-size: 15px; font-weight: 500; transition: 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">Forgot Password?</a>
-                                    </div>
-                                    <div class="col-lg-12 text-center">
+                                    <div class="col-lg-12 text-center mt--10">
                                         <div class="tmp-button-here">
-                                            <button class="tmp-btn hover-icon-reverse radius-round" type="submit" style="width: 100%; padding: 18px; display: flex; justify-content: center; background: var(--color-primary); border: none; color: white;">
+                                            <button class="tmp-btn hover-icon-reverse radius-round" type="submit" style="width: 100%; padding: 12px; display: flex; justify-content: center; background: var(--color-primary); border: none; color: white;">
                                                 <span class="icon-reverse-wrapper" style="width: 100%; justify-content: center;">
                                                     <span class="btn-text" style="font-size: 18px; font-weight: 600;">Create Account</span>
                                                 </span>
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 text-center mt--30">
+                                    <div class="col-lg-12 text-center mt--20">
+                                        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                                            <div style="flex-grow: 1; height: 1px; background: rgba(255,255,255,0.15);"></div>
+                                            <span style="color: rgba(255,255,255,0.6); font-size: 14px; padding: 0 15px;">Or continue with</span>
+                                            <div style="flex-grow: 1; height: 1px; background: rgba(255,255,255,0.15);"></div>
+                                        </div>
+                                        <div class="social-login-icons" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+                                            <a href="404.html" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span class="material-icons" style="color:#ea4335;">language</span></a>
+                                            <a href="404.html" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span class="material-icons" style="color:#1877f2;">facebook</span></a>
+                                            <a href="404.html" style="display: inline-flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.15); color: #ffffff; text-decoration: none; transition: 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'"><span class="material-icons">smartphone</span></a>
+                                        </div>
                                         <p style="color: rgba(255,255,255,0.6); font-size: 16px; margin-bottom: 0;">Already have an account? <a href="login.html" style="color: #fff; font-weight: 600; text-decoration: underline; margin-left: 5px;">Login</a></p>
                                     </div>
                                 </div>
@@ -111,12 +140,7 @@
     <script src="assets/js/main.js"></script>    <script>
         document.getElementById('signup-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const role = document.querySelector('input[name="role"]:checked').value;
-            if (role === 'admin') {
-                window.location.href = 'admin-dashboard.html';
-            } else {
-                window.location.href = 'user-dashboard.html';
-            }
+            window.location.href = 'login.html';
         });
     </script>
 </body>
