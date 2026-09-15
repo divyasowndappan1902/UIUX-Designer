@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,6 +14,7 @@
     
     
     
+    
     <!-- custom css -->
     
 
@@ -22,25 +23,6 @@
 
 <body class="tmp-white-version">
     <!-- Stackly Preloader -->
-    <div class="loader-wrap">
-        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
-            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
-        </svg>
-        <div class="loader-wrap-heading">
-            <div class="load-text">
-                <span>S</span>
-                <span>T</span>
-                <span>A</span>
-                <span>C</span>
-                <span>K</span>
-                <span>L</span>
-                <span>Y</span>
-            </div>
-        </div>
-    </div>
-
-    
-    </div>
 
 
     <!-- tpm-header-area start -->
@@ -78,7 +60,7 @@
                         </nav>
                         <div class="tmp-header-right">
                             <div class="actions" style="display: flex; align-items: center; gap: 20px;">
-                                <a href="login.html" class="btn-3d-login d-flex"><span class="material-icons" style="font-size: 22px;">login</span>Login</a>
+                                <a href="login.html" class="btn-3d-login d-none d-xl-flex"><span class="material-icons" style="font-size: 22px;">login</span>Login</a>
                                 <button class="tmp-round-action-btn humberger_menu_active d-xl-none d-flex">
                                     <span class="material-icons">menu</span>
                                 </button>
@@ -197,8 +179,11 @@
                     </li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-
-
+                <!-- mobile login button -->
+                <div class="mobile-login-container mt--30" style="margin-top: 30px; padding: 0 15px;">
+                    <a href="login.html" class="btn-3d-login d-flex" style="width: 100%; justify-content: center;"><span class="material-icons" style="font-size: 22px;">login</span>Login</a>
+                </div>
+                
                 <div class="social-wrapper mt--40">
                     <span class="subtitle">find with me</span>
                     <div class="social-link">
@@ -223,7 +208,7 @@
     <!-- Addon Hero Section Start -->
     <div class="breadcrumb-area breadcrumb-bg" style="background-image: linear-gradient(rgba(17, 15, 14, 0.8), rgba(17, 15, 14, 0.8)), url('assets/images/breadcrumb/bg-blog.webp');">
         <div class="slider-bg-dot-shape" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;">
-            <div class="wrapper blocksync-scroll-trigger blocksync-stars-area fade_in animation-order-16">
+            <div class="wrapper blocksync-scroll-trigger blocksync-stars-area  ">
                 <div class="blocksync-stars"></div>
                 <div class="blocksync-stars2"></div>
                 <div class="blocksync-stars3"></div>
@@ -233,7 +218,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-inner text-center">
-                        <h1 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-1">Latest Blog</h1>
+                        <h1 class="title split-collab   ">Latest Blog</h1>
                         <ul class="page-list">
                             <li><a href="index.html">Home</a></li>
                             <li class="icon"><span class="material-icons">chevron_right</span></li>
@@ -253,7 +238,7 @@
             <!-- Section 1: Featured Article -->
             <div class="row mb--80">
                 <div class="col-lg-12">
-                    <div class="featured-blog-card tmp-scroll-trigger tmp-fade-in animation-order-1" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; overflow: hidden; display: flex; flex-wrap: wrap; align-items: center;">
+                    <div class="featured-blog-card   " style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; overflow: hidden; display: flex; flex-wrap: wrap; align-items: center;">
                         <div class="col-lg-7">
                             <div class="featured-img" style="padding: 20px;">
                                 <img src="assets/images/blog/uiux-1.webp" alt="Featured Blog" style="border-radius: 20px; width: 100%; object-fit: cover; height: 100%; max-height: 400px;">
@@ -284,9 +269,9 @@
             <div class="row mb--80">
                 <div class="col-lg-12">
                     <div class="section-head text-center mb--40">
-                        <h3 class="title tmp-scroll-trigger tmp-fade-in animation-order-1" style="font-size: 24px; font-weight: 700;">Explore Topics</h3>
+                        <h3 class="title   " style="font-size: 24px; font-weight: 700;">Explore Topics</h3>
                     </div>
-                    <div class="topics-wrapper tmp-scroll-trigger tmp-fade-in animation-order-2" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                    <div class="topics-wrapper   " style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
                         <a href="404.html" style="padding: 15px 30px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; font-weight: 600; color: inherit; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-primary, #0099ff)'; this.style.borderColor='var(--color-primary, #0099ff)';" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.1)';">UI Design</a>
                         <a href="404.html" style="padding: 15px 30px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; font-weight: 600; color: inherit; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-primary, #0099ff)'; this.style.borderColor='var(--color-primary, #0099ff)';" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.1)';">UX Research</a>
                         <a href="404.html" style="padding: 15px 30px; border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; font-weight: 600; color: inherit; transition: all 0.3s ease;" onmouseover="this.style.background='var(--color-primary, #0099ff)'; this.style.borderColor='var(--color-primary, #0099ff)';" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.1)';">Case Studies</a>
@@ -299,13 +284,13 @@
             <div class="row mb--80">
                 <div class="col-lg-12">
                     <div class="section-head mb--40">
-                        <h3 class="title tmp-scroll-trigger tmp-fade-in animation-order-1" style="font-size: 32px; font-weight: 700;">Latest Articles</h3>
+                        <h3 class="title   " style="font-size: 32px; font-weight: 700;">Latest Articles</h3>
                     </div>
                 </div>
                 <div class="row animation-action-5 g-5">
                     <!-- Card 1 -->
                     <div class="col-xl-4 col-lg-6 col-md-6 col-12 paralax-image">
-                        <div class="blog-card-style-two tmp-scroll-trigger tmponhover tmp-fade-in animation-order-1 single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
+                        <div class="blog-card-style-two  tmponhover   single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
                             <div class="blog-card-img">
                                 <div class="img-box">
                                     <a href="404.html"><img src="assets/images/blog/uiux-1.webp" alt="Blog Thumbnail"></a>
@@ -321,7 +306,7 @@
                     </div>
                     <!-- Card 2 -->
                     <div class="col-xl-4 col-lg-6 col-md-6 col-12 paralax-image">
-                        <div class="blog-card-style-two tmp-scroll-trigger tmponhover tmp-fade-in animation-order-2 single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
+                        <div class="blog-card-style-two  tmponhover   single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
                             <div class="blog-card-img">
                                 <div class="img-box">
                                     <a href="404.html"><img src="assets/images/blog/uiux-2.webp" alt="Blog Thumbnail"></a>
@@ -337,7 +322,7 @@
                     </div>
                     <!-- Card 3 -->
                     <div class="col-xl-4 col-lg-6 col-md-6 col-12 paralax-image">
-                        <div class="blog-card-style-two tmp-scroll-trigger tmponhover tmp-fade-in animation-order-3 single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
+                        <div class="blog-card-style-two  tmponhover   single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
                             <div class="blog-card-img">
                                 <div class="img-box">
                                     <a href="404.html"><img src="assets/images/blog/uiux-3.webp" alt="Blog Thumbnail"></a>
@@ -353,7 +338,7 @@
                     </div>
                     <!-- Card 4 -->
                     <div class="col-xl-4 col-lg-6 col-md-6 col-12 paralax-image">
-                        <div class="blog-card-style-two tmp-scroll-trigger tmponhover tmp-fade-in animation-order-4 single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
+                        <div class="blog-card-style-two  tmponhover   single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
                             <div class="blog-card-img">
                                 <div class="img-box">
                                     <a href="404.html"><img src="assets/images/blog/uiux-4.webp" alt="Blog Thumbnail"></a>
@@ -369,7 +354,7 @@
                     </div>
                     <!-- Card 5 -->
                     <div class="col-xl-4 col-lg-6 col-md-6 col-12 paralax-image">
-                        <div class="blog-card-style-two tmp-scroll-trigger tmponhover tmp-fade-in animation-order-5 single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
+                        <div class="blog-card-style-two  tmponhover   single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
                             <div class="blog-card-img">
                                 <div class="img-box">
                                     <a href="404.html"><img src="assets/images/blog/uiux-5.webp" alt="Blog Thumbnail"></a>
@@ -385,7 +370,7 @@
                     </div>
                     <!-- Card 6 -->
                     <div class="col-xl-4 col-lg-6 col-md-6 col-12 paralax-image">
-                        <div class="blog-card-style-two tmp-scroll-trigger tmponhover tmp-fade-in animation-order-6 single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
+                        <div class="blog-card-style-two  tmponhover   single-animation" data-bs-toggle="modal" data-bs-target="#exampleModalCenters">
                             <div class="blog-card-img">
                                 <div class="img-box">
                                     <a href="404.html"><img src="assets/images/blog/uiux-6.webp" alt="Blog Thumbnail"></a>
@@ -405,7 +390,7 @@
             <!-- Section 4: Newsletter Subscription -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="newsletter-section tmp-scroll-trigger tmp-fade-in animation-order-1" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 60px 40px; text-align: center;">
+                    <div class="newsletter-section   " style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 60px 40px; text-align: center;">
                         <h2 class="title" style="font-size: 36px; font-weight: 700; margin-bottom: 20px;">Get Weekly UI/UX Insights</h2>
                         <p class="description" style="font-size: 18px; opacity: 0.8; max-width: 600px; margin: 0 auto 40px;">Join 5,000+ designers and receive my latest articles, resources, and case studies directly in your inbox.</p>
                         <form action="404.html" class="newsletter-form" style="display: flex; max-width: 500px; margin: 0 auto; gap: 15px; justify-content: center;">
@@ -448,7 +433,7 @@
                         <div class="col-lg-2 col-md-4 col-sm-6">
                             <div class="quick-link-wrap">
                                 <h5 class="ft-title">Quick Link</h5>
-                                <ul class="ft-link tmp-scroll-trigger animation-order-1 tmp-link-animation">
+                                <ul class="ft-link   tmp-link-animation">
                                     <li>
                                         <a href="index.html">Home</a>
                                     </li>
@@ -470,7 +455,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class="single-footer-wrapper contact-wrap">
                                 <h5 class="ft-title">Contact </h5>
-                                <ul class="ft-link tmp-scroll-trigger animation-order-1 tmp-link-animation">
+                                <ul class="ft-link   tmp-link-animation">
                                     <li><span class="ft-icon"><span class="material-icons">phone</span></span><a href="404.html">987345 67820
                                             </a></li>
                                     <li><span class="ft-icon"><span class="material-icons">location_on</span></span>MMR Complex, Salem</li>
@@ -479,7 +464,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="newslatter tmp-scroll-trigger animation-order-1">
+                            <div class="newslatter  ">
                                 <h3 class="title">Newslatter</h3>
                                 <p class="para">The personal portfolio categor includes the a websites or representation</p>
                                 <form action="#" class="newsletter-form-1"><input type="email" placeholder="Your e-mail" required><span><button type="submit" class="form-icon" style="border: none; width: 52px; height: 52px; outline: none; cursor: pointer; display: flex; align-items: center; justify-content: center;"><span class="material-icons" style="color: white; font-size: 24px;">arrow_forward</span></button></span></form>
@@ -495,8 +480,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="main-wrapper tmp-scroll-trigger animation-order-1">
-                            <p class="copy-right-para">Â© Stackly<script>
+                        <div class="main-wrapper  ">
+                            <p class="copy-right-para">© Stackly<script>
                                     document.write(new Date().getFullYear())
                                 </script> | All Rights Reserved</p>
                             <ul class="tmp-link-animation">
@@ -510,10 +495,10 @@
             </div>
         </div>
         <div class="slider-bg-light">
-            <img class="blocksync-scroll-trigger fade_in animation-order-8" src="assets/images/banner/shape/light-left.webp" alt="Top Light Shape">
+            <img class="blocksync-scroll-trigger  " src="assets/images/banner/shape/light-left.webp" alt="Top Light Shape">
         </div>
         <div class="slider-bg-dot-shape">
-            <div class="wrapper blocksync-scroll-trigger blocksync-stars-area fade_in animation-order-16">
+            <div class="wrapper blocksync-scroll-trigger blocksync-stars-area  ">
                 <div class="blocksync-stars"></div>
                 <div class="blocksync-stars2"></div>
                 <div class="blocksync-stars3"></div>
@@ -698,6 +683,11 @@
     </body>
 
 </html>
+
+
+
+
+
 
 
 
