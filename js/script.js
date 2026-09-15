@@ -1533,10 +1533,7 @@ jQuery(document).ready(function ($) {
           // slidesPerView: 2,
           spaceBetween: 30,
           loop: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
+          
           breakpoints: {
             0: {
               slidesPerView: 1,
@@ -1552,10 +1549,7 @@ jQuery(document).ready(function ($) {
           slidesPerView: 2,
           spaceBetween: 30,
           loop: true,
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
+          
           speed: 1000,
          
           breakpoints: {
@@ -1582,6 +1576,11 @@ jQuery(document).ready(function ($) {
             el: ".tmp-swiper-pagination",
             clickable: true,
           },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          
           breakpoints: {
             0: {
               slidesPerView: 1,
@@ -2265,11 +2264,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.body.classList.add("preloader-active");
-  window.addEventListener('load', function() {
-    removePreloader();
-  });
+  
 });
 
 
 
 ;
+
+
+// Stackly preloader exact 2s logic
+setTimeout(function() {
+    var loaderWrap = document.querySelector('.loader-wrap');
+    if (loaderWrap) {
+        loaderWrap.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
+        loaderWrap.style.opacity = '0';
+        loaderWrap.style.visibility = 'hidden';
+        setTimeout(function() {
+            loaderWrap.style.display = 'none';
+            document.body.classList.remove("preloader-active");
+        }, 500);
+    }
+}, 2000);
