@@ -16,8 +16,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body style=" min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 50px 0;">
-    <div class="bg-animation" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; overflow: hidden; background: #24202a;">
+<body style=" min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 50px 0; overflow-x: hidden;">
+    <div class="bg-animation" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden; background: #24202a;">
         <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 100 100" style="width: 100%; height: 100%; filter: blur(30px); opacity: 0.6;">
             <circle cx="20" cy="20" r="25" fill="#8b5cf6">
                 <animate attributeName="cy" values="20; 80; 20" dur="12s" repeatCount="indefinite" />
@@ -33,19 +33,19 @@
             </circle>
         </svg>
     </div>
-        <a href="index.html" style="position: absolute; top: 30px; left: 30px; color: #a19fad; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; transition: 0.3s; z-index: 10;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#a19fad'">
+        <a href="index.html" class="back-btn-mobile" style="position: absolute; top: 30px; left: 30px; color: #a19fad; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; transition: 0.3s; z-index: 10;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#a19fad'">
         <span class="material-icons">arrow_back</span>
         Back to Home
     </a>
-    <div class="container">
+    <div class="container" style="position: relative;">
         <div class="row justify-content-center">
-            <div class="col-lg-12 text-center mb--15">
+            <div class="col-lg-12 text-center mb--15 logo-mobile-margin">
                 <a href="index.html">
                     <img src="assets/images/logo_0006.webp" alt="Logo" style="max-height: 30px; object-fit: contain;">
                 </a>
             </div>
             <div class="col-lg-5">
-                <div class="contact-inner tmp-scroll-trigger tmp-fade-in animation-order-1" style="background: #2d2932; padding: 35px 30px; border-radius: 20px; border: 1px solid #423d4a; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+                <div class="contact-inner tmp-scroll-trigger tmp-fade-in animation-order-1" style="background: #2d2932; padding: 35px 20px; border-radius: 20px; border: 1px solid #423d4a; box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
                         <div class="section-head text-center mb--15">
                             <span class="subtitle" style="margin-bottom: 10px; display: inline-block; color: #a19fad;">Login</span>
                             <h3 class="title" style="font-size: 32px; font-weight: 700; color: #ffffff;">Welcome Back</h3>
@@ -82,7 +82,7 @@
                                             <input class="input-field" id="login-password" name="password" placeholder="********" type="password" required minlength="8" style="width: 100%; background: #24202a; border: 1px solid #423d4a; padding: 12px 18px; border-radius: 10px; color: #fff; font-size: 16px; font-family: inherit;">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 mb--15 d-flex justify-content-between align-items-center">
+                                    <div class="col-lg-12 mb--15 d-flex justify-content-between align-items-center flex-wrap" style="gap: 10px;">
                                         <div class="form-check" style="display: flex; align-items: center; gap: 8px;">
                                             <input class="form-check-input" type="checkbox" id="rememberMe" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); margin-top: 0; cursor: pointer; accent-color: var(--color-primary);">
                                             <label class="form-check-label" for="rememberMe" style="color: #a19fad; font-size: 15px; cursor: pointer;">
@@ -123,6 +123,14 @@
         </div>
     </div>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        @media (max-width: 576px) {
+            .logo-mobile-margin {
+                margin-top: 30px;
+            }
+        }
         input[type="radio"]:checked + .role-card-inner {
             border-color: #ffffff !important;
             color: #ffffff !important;

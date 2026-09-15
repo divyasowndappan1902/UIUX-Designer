@@ -56034,6 +56034,201 @@ body.tmp-white-version.color-primary-3rd .services-widget.v2 .active-bg {
 }
 
 /* Checked/Selected State */
+body.tmp-white-version .tpm-custom-box-bg,
+body.tmp-white-version .get-in-touch-wrapper,
+body.tmp-white-version .experiences-wrapper .experiences-wrap-right-content {
+  box-shadow: var(--shadow-white);
+}
+body.tmp-white-version .year-of-expariance-wrapper {
+  box-shadow: var(--shadow-white);
+}
+body.tmp-white-version.index-ten .tmp-contact-about-inner {
+  box-shadow: var(--shadow-white);
+}
+body.tmp-white-version .profile-image-1-personal-left-fixed .inner-content {
+  background: #f4f4f4;
+  box-shadow: var(--shadow-white);
+  overflow: visible;
+}
+body.tmp-white-version .profile-image-1-personal-left-fixed {
+  overflow: visible;
+}
+body.tmp-white-version .page-with-left-header .get-in-touch-wrapper {
+  box-shadow: none;
+}
+
+.tmp-white-version .tmp-right-demo .demo-button::before {
+  content: "";
+  background: linear-gradient(-45deg, #ee7752, #ff004b, #ff004b, #d52323);
+  background-size: 400% 400%;
+  animation: gradient 4s ease infinite;
+  opacity: 1;
+  backdrop-filter: blur(21px);
+}
+.tmp-white-version .tmp-right-demo * {
+  color: #fff !important;
+}
+.tmp-white-version.index-8 .tmp-contact-about-inner::after {
+  display: none !important;
+}
+.tmp-white-version.video-bg-image-bg-green {
+  background-image: url("../assets/images/bg/06.webp");
+}
+.tmp-white-version .tmp-profile-card .work-experiance-card .work-experiance-slider li .info .icon {
+  background-color: rgba(213, 213, 213, 0.38);
+}
+.tmp-white-version .experience-style-list .experience-list .resume-single-list:hover .inner .heading .title h4 {
+  color: var(--color-heading);
+}
+
+.tmp-white-version .tmp-banner-one-area.style-3 .thumbnail-author img, .tmp-white-version .tmp-banner-one-area.style-4 .thumbnail-author img {
+  border: 25px solid #ebebeb;
+}
+
+.index-ten .tmp-contact-about-inner {
+  flex-direction: column;
+}
+@media only screen and (max-width: 767px) {
+  .index-ten .tmp-contact-about-inner .thumbnail img {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+}
+
+.tmp-white-version .year-of-expariance-wrapper.bg-blur-style-one::after {
+  display: none;
+}
+.tmp-white-version .tmponhover:hover .tmp-light, .tmp-white-version .tmponhover.active .tmp-light {
+  opacity: 0;
+}
+.tmp-white-version .services-widget.v1 .my-skill-card .card-icon {
+  border: 2px solid #fff;
+}
+.tmp-white-version .color-primary-2nd .services-widget.v1 .my-skill-card .card-icon i {
+  color: var(--color-heading);
+}
+.tmp-white-version .about-us-left-content-wrap .design-card .design-card-img {
+  border: 2px solid var(--color-primary);
+}
+.tmp-white-version .color-primary-2nd .services-widget.v2 .active-bg {
+  background: var(--color-primary);
+}
+.tmp-white-version .color-primary-2nd .my-expertise-card-wrap .expertise-card-left .expertise-card-logo img {
+  filter: brightness(0) saturate(100%) !important;
+}
+.tmp-white-version .my-expertise-card-wrap .expertise-card-left .expertise-card-logo {
+  border: 2px solid #141414;
+}
+.tmp-white-version .rpp-banner-two-area::before {
+  display: none;
+}
+.tmp-white-version .rpp-banner-two-area::after {
+  display: none;
+}
+.tmp-white-version .banner-three-main-wrapper .bg-benner-img-three::before {
+  display: none;
+}
+.tmp-white-version .services-widget.v4 .active-bg {
+  background: rgb(253, 196, 72);
+}
+.tmp-white-version .tmp-banner-one-area.style-4 .galaxy {
+  opacity: 0.07;
+}
+
+body.tmp-white-version.color-primary-3rd .services-widget.v2 .active-bg {
+  background: rgb(255, 193, 7);
+}
+
+.demo-modal-area .wrapper .tmp-modal-inner .demo-top .subtitle {
+  color: #c2c2c2 !important;
+}
+
+.active-light.demo-modal-area .wrapper .tmp-modal-inner .demo-top .subtitle {
+  color: #3d3d3d !important;
+}
+/*# sourceMappingURL=../maps/style.css.map */
+
+
+
+
+/* Custom Alignment Fixes for Blog Cards */
+.blog-card-style-two {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+.blog-card-style-two .blog-card-img img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover !important;
+}
+.blog-card-style-two .blog-content-wrap {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.blog-card-style-two .blog-content-wrap .blog-title {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  height: 60px !important;
+}
+.blog-card-style-two .blog-content-wrap .tmp-button-here {
+  margin-top: auto !important;
+}
+
+/* ==========================================================================
+   Custom Role Selection Slot (Login & Signup)
+   ========================================================================== */
+.role-selection-wrapper {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.role-selection-card {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+}
+.role-selection-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.role-selection-card .role-card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+.role-selection-card .role-card-inner i {
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+.role-selection-card .role-card-inner span {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+/* Hover State */
+.role-selection-card:hover .role-card-inner {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Checked/Selected State */
 .role-selection-card input[type="radio"]:checked ~ .role-card-inner {
     border-color: var(--color-primary);
     background: rgba(var(--color-primary-rgb), 0.1);
@@ -56044,3 +56239,8 @@ body.tmp-white-version.color-primary-3rd .services-widget.v2 .active-bg {
     color: var(--color-primary);
 }
 
+/* Fix button text clipping globally */
+.tmp-btn.hover-icon-reverse .btn-text {
+    margin-inline-start: 0 !important;
+    transform: none !important;
+}
